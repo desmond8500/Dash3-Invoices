@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MainService } from '../../../services/main.service';
 
 @Component({
     selector: 'app-auth-header',
@@ -8,5 +9,7 @@ import { RouterModule } from '@angular/router';
     styleUrl: './auth-header.component.scss'
 })
 export class AuthHeaderComponent {
+  main = inject(MainService);
 
+  logo = this.main.logo_transparent;
 }

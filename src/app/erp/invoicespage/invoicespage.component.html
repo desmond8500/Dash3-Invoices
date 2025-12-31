@@ -1,0 +1,48 @@
+<div class="row g-2">
+  <div class="col-md-3">
+
+    @for(month of months; track month.value){
+      <div class="mb-2">
+        <a class="btn btn-primary w-100" (click)="getMonth(month.value, 2025)">{{ month.label+` 2025` }}</a>
+      </div>
+    }
+    <div class="mb-2">
+      <a class="btn btn-warning w-100" (click)="get_month_deposit()">Acomptes</a>
+    </div>
+
+  </div>
+
+  <div class="col-md-9">
+    <div class="row row-deck g-2">
+      @for(facture of factures().data; track facture.id){
+        <a [href]="facture.folder" target="_blank" class="col-md-6" style="text-decoration: none;">
+          <app-invoice-card [facture]="facture"></app-invoice-card>
+        </a>
+      } @empty {
+        @if (deposits()) {
+          @for(deposit of deposits().data; track deposit.id){
+            <a [href]="deposit.folder" target="_blank" class="col-md-6" style="text-decoration: none;">
+              <app-invoice-card [facture]="deposit"></app-invoice-card>
+            </a>
+            }
+        }@else {
+          <div class="col-12">
+            <div class="bg-white text-center mt-2 p-3 text-lg border-round">
+              <div class="my-2">
+                <i class="pi pi-info-circle" style="font-size: 3rem"></i>
+              </div>
+              <div class="font-bold">Pas de facture disponible</div>
+              <div class="mt-2">Veuillez sélectionner un mois</div>
+            </div>
+          </div>
+
+        }
+        <!--
+           -->
+    }
+
+
+
+    </div>
+  </div>
+</div>

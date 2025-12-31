@@ -5,11 +5,12 @@ import { AuthSigninComponent } from './auth/auth-pages/auth-signin/auth-signin.c
 import { AuthSignupComponent } from './auth/auth-pages/auth-signup/auth-signup.component';
 import { AuthPassResetComponent } from './auth/auth-pages/auth-pass-reset/auth-pass-reset.component';
 import { AuthLockscreenComponent } from './auth/auth-pages/auth-lockscreen/auth-lockscreen.component';
+import { ErpComponent } from './erp/erp.component';
 
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'auth',
+        redirectTo: 'erp',
         pathMatch: 'full',
     },
     {
@@ -29,4 +30,10 @@ export const routes: Routes = [
         loadChildren: () =>
             import('./layouts/layout.route').then((mod) => mod.PAGE_ROUTES),
     },
+    {
+      path: 'erp',
+      component: ErpComponent,
+      loadChildren: () =>
+          import('./erp/erp-routing.module').then((mod) => mod.ErpRoutingModule),
+    }
 ];
