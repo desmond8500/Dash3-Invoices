@@ -16,6 +16,7 @@ export class InvoicespageComponent {
 
   factures = signal<any>('');
   deposits = signal<any>('');
+  total = signal<any>('');
 
   months = [
     { label: 'Janvier', value: 1 },
