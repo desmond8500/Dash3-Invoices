@@ -1,12 +1,11 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { PageTitleComponent } from '../../../shared/page-title/page-title.component';
 import { latLng, tileLayer, circle, polygon, marker, icon, Layer } from 'leaflet';
 
 
 @Component({
     selector: 'app-maps-leaflet',
-    imports: [LeafletModule, PageTitleComponent],
+    imports: [ PageTitleComponent],
     templateUrl: './maps-leaflet.component.html',
     styleUrl: './maps-leaflet.component.scss',
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
